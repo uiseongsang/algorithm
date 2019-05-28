@@ -15,6 +15,10 @@
  * The Big O is the same as Selective sort
  * But Bubble sort take more time than Selective sort
  * Becasue the Bubble sort has so many comparison number than Selective sort.
+ *
+ * Worst case performance: O(N^2)
+ * Best case performance: O(N)
+ * Average case performance: O(N^2)
  */
 
 #include <stdio.h>
@@ -25,9 +29,10 @@ int main(void)
 	
 	int array[10] = {10, 1, 5, 8, 7, 6, 4, 3, 2, 9}	;
 	
-	for(i = 0; i < 10 ; i++)
+	// O(N) * O(N) = O(N^2)
+	for(i = 0; i < 10 ; i++) // O(N)
 	{
-		for(j = 0; j < 9 - i; j++)
+		for(j = 0; j < 9 - i; j++) // O(N)
 		{
 			if(array[j] > array[j+1]) // compare with left number and right number
 			{
