@@ -16,6 +16,10 @@
  * N * N  <== why?  Computer ignore +1 and / 2 because those are not that big meaning for computer
  * Therefore, to write as BIg O notation
  * "O(N^2)" ==> time complexity
+ *
+ * Worst case performance: O(N^2)
+ * Best case performance: O(N^2)
+ * Average case performance: O(N^2)
  */ 
 #include <stdio.h>
 
@@ -24,10 +28,12 @@ int main(void)
 	int i, j, min, index, temp;
 
 	int array[10] = {10, 1, 5, 8, 7, 6, 4, 3, 2, 9}	;
-	for(i = 0; i < 10; i++)
+	
+	// O(N) * O(N) = O(N^2)
+	for(i = 0; i < 10; i++) // O(N)
 	{
 		min = 9999; // just big random number
-		for(j = i; j < 10; j++)
+		for(j = i; j < 10; j++) // O(N)
 		{
 			if(min > array[j])
 			{
