@@ -8,9 +8,6 @@
  * The main concept for Quick sort is one big problem divide two small problems
  * Let say easier that particular value is made standard(Pivot). Atfer large number and small number switch, array is divided half.
  *
- * The Quick sort is 
- *
- *
  * Worst case performance: O(N^2)
  * Best case performance: O(n log n)
  * Average case performance: O(n log n)
@@ -18,8 +15,8 @@
 
 #include <stdio.h>
 
-int number = 1-
-int data[10] = {10, 1, 5, 8, 7, 6, 4, 3, 2, 9}	;
+int number = 10;
+int data[10] = {10, 1, 5, 8, 7, 6, 4, 3, 2, 9};
 
 void quickSort(int *data, int start, int end)
 {
@@ -30,23 +27,47 @@ void quickSort(int *data, int start, int end)
 	
 	int key = start; // key is the first element
 	int i = start + 1;
-	int k = end;
+	int j = end;
 	int temp;
 	
 	while(i <= j ) // repeat until they are cross
 	{
-		while(data[i] <= data[key]) // repeat until meet key
+		while(data[i] <= data[key]) // repeat until key meet larger than key value 
 		{
 			i++;
 		}
-		while(data[j] >= data[key && j > start]) //
+		while(data[j] >= data[key] && j > start) // repeat until key meet smaller than key value
+		{
+			j--;
+		}
+		if(i > j) // key value and j(end) are switched wehn they are crossed
+		{
+			temp = data[j];
+			data[j] = data[key];
+			data[key] = temp;
+		}
+		else
+		{
+			temp = data[j];
+			data[j] = data[i];
+			data[i] = temp;
+			
+		}
 	}
+	
+	// recursion 
+	quickSort(data, start, j - 1);
+	quickSort(data, j + 1, end);
 	
 }
 
-void main(void)
+int main(void)
 {
 
-
+quickSort(data, 0, number - 1);
+for(int i = 0; i < number; i++)
+{
+	printf("%d ", data[i]);
+}
 	
 }
